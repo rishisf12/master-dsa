@@ -1,0 +1,89 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - strong [ref=e3]: AdaptAir — One-Page Flyer
+    - generic [ref=e4]: Preview — ready to print when you are.
+    - button "🖨 Print flyer" [ref=e5] [cursor=pointer]
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e11]:
+        - text: AdaptAir™
+        - generic [ref=e12]: Smart Air Purifier
+      - generic [ref=e13]: Self-calibrating · Source-aware
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "The purifier that measures its own cleaning power." [level=1] [ref=e16]
+        - paragraph [ref=e17]: AdaptAir knows its real-world condition — actual CADR, filter loading, sensor bias — and knows why the air got dirty, using only the sensors it already carries. Everything runs on a single ESP32.
+      - generic [ref=e19]:
+        - generic [ref=e20]: PM2.5 12
+        - generic [ref=e21]: CO₂ 642 · FAN 62%
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: ≥ 20%
+        - text: less energy than auto-mode
+      - generic [ref=e25]:
+        - generic [ref=e26]: < 35
+        - text: µg/m³ PM2.5 target (USEPA)
+      - generic [ref=e27]:
+        - generic [ref=e28]: 10–30
+        - text: min PM2.5 forecast ahead
+      - generic [ref=e29]:
+        - generic [ref=e30]: "830"
+        - text: mm slim tower design
+    - generic [ref=e31]:
+      - heading "Why AdaptAir?" [level=2] [ref=e32]
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - heading "Self-calibrating CADR" [level=3] [ref=e39]
+          - paragraph [ref=e40]: Fits PM2.5 decay after every clean-down and updates its real cleaning rate — live, in your room.
+        - generic [ref=e41]:
+          - heading "Real filter health" [level=3] [ref=e46]
+          - paragraph [ref=e47]: Fuses INA219 power signatures with measured CADR — separates a clogging filter from a leaky room.
+        - generic [ref=e48]:
+          - heading "Source-aware control" [level=3] [ref=e52]
+          - paragraph [ref=e53]: Reed-switch door events vs CO₂ + particle size bins — incense gets a burst, a door gets a boost.
+    - generic [ref=e54]:
+      - heading "How it works — the AdaptAir loop" [level=2] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e57]: SensePM · RH · CO₂ · door · power
+        - generic [ref=e60]: Self-calibratehumidity-correct · fit CADR · load
+        - generic [ref=e63]: Classify eventdoor → boost · smoke → burst
+        - generic [ref=e66]: Actforecast 10–30 min · save energy
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]: PMS5003
+        - text: laser PM1 / PM2.5 / PM10
+      - generic [ref=e72]:
+        - generic [ref=e73]: BME280
+        - text: temp · humidity · pressure
+      - generic [ref=e74]:
+        - generic [ref=e75]: SCD40
+        - text: true NDIR CO₂
+      - generic [ref=e76]:
+        - generic [ref=e77]: INA219
+        - text: inline current / power
+      - generic [ref=e78]:
+        - generic [ref=e79]: Reed switch
+        - text: door-open detection
+    - generic [ref=e80]:
+      - heading "📊 Where AdaptAir fits the market" [level=3] [ref=e81]
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]: $579M
+          - generic [ref=e85]: India market '25
+        - generic [ref=e86]:
+          - generic [ref=e87]: 13.5%
+          - generic [ref=e88]: annual growth
+        - generic [ref=e89]:
+          - generic [ref=e90]: <5%
+          - generic [ref=e91]: homes own one
+        - generic [ref=e94]:
+          - generic [ref=e95]: ₹10–15K
+          - generic [ref=e96]: smart segment
+        - generic [ref=e97]:
+          - generic [ref=e98]: ≥20%
+          - generic [ref=e99]: less energy than auto-mode
+    - generic [ref=e100]:
+      - generic [ref=e101]:
+        - heading "Ready to breathe smarter?" [level=3] [ref=e102]
+        - paragraph [ref=e103]: "IIITDM Jabalpur · Group 83 · Mentor: Dr. Ranjeet Kumar Ranjan"
+      - generic [ref=e104]: AdaptAir™

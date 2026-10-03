@@ -1,0 +1,96 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+
+# Build
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Type checking
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Ruff
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# Data
+data/
+*.sqlite
+*.db
+
+# Model files (large, use Git LFS or DVC)
+*.bin
+*.pt
+*.pth
+*.onnx
+*.engine
+*.plan
+*.safetensors
+model_repository/*/1/*.engine
+model_repository/*/1/*.plan
+
+# Secrets
+*.pem
+*.key
+*.crt
+secrets/
+
+# CI/CD
+.github/workflows/*.yml.bak
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Local development
+local/
+dev/
+
+# Benchmark results
+benchmark_results/
+*.jsonl

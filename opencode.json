@@ -1,0 +1,15 @@
+{
+  "model": "opencode/longcat-2.5-preview-free",
+  "mcp": {
+    "servers": {
+      "playwright": {
+        "command": "npx",
+        "args": ["-y", "@playwright/mcp@latest"]
+      },
+      "firecrawl": {
+        "type": "sse",
+        "url": "https://mcp.firecrawl.dev/v2/mcp"
+      }
+    }
+  }
+}

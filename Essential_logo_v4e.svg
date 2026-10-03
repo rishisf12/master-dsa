@@ -1,0 +1,124 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <radialGradient id="r" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </radialGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#10b981" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow2">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fbbf24" flood-opacity="0.6"/>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="200" height="200" fill="#022c22"/>
+  
+  <g transform="translate(100, 100)">
+    <!-- Concept: Kanban board with 3 columns - To Do, In Progress, Done -->
+    
+    <!-- Column headers -->
+    <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" opacity="0.6">
+      <text x="-95" y="-80" font-size="9">TO DO</text>
+      <text x="0" y="-80" font-size="9">IN PROGRESS</text>
+      <text x="95" y="-80" font-size="9">DONE</text>
+    </g>
+    
+    <!-- Column separators -->
+    <g stroke="white" stroke-width="0.5" opacity="0.2">
+      <line x1="-100" y1="-70" x2="100" y2="-70"/>
+      <line x1="-33" y1="-70" x2="-33" y2="70"/>
+      <line x1="33" y1="-70" x2="33" y2="70"/>
+    </g>
+    
+    <!-- Column 1: TO DO -->
+    <g transform="translate(-66, -55)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.1s" fill="freeze"/>
+      <rect x="-30" y="-30" width="60" height="80" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+      <text x="0" y="-15" font-family="system-ui" font-size="10" font-weight="600" fill="white" text-anchor="middle" opacity="0.7">CLASSES</text>
+      <text x="0" y="5" font-size="9" fill="white" text-anchor="middle" opacity="0.5">ASSIGNMENTS</text>
+      <text x="0" y="25" font-size="9" fill="white" text-anchor="middle" opacity="0.5">EXAMS</text>
+      <text x="0" y="45" font-size="9" fill="white" text-anchor="middle" opacity="0.5">CAPSTONE</text>
+    </g>
+    
+    <!-- Column 2: IN PROGRESS (cards moving) -->
+    <g transform="translate(0, -55)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.5s" fill="freeze"/>
+      <rect x="-30" y="-30" width="60" height="80" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+      <g font-family="system-ui" font-size="9" font-weight="600" fill="white" text-anchor="middle">
+        <text x="0" y="-18" font-weight="700">IN PROGRESS</text>
+        <text x="0" y="-5" font-size="9" fill="url(#g)" opacity="0">✓ Classes</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1s" fill="freeze"/>
+        <text x="0" y="5" font-size="9" fill="url(#g)" opacity="0">✓ Assignments</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.3s" fill="freeze"/>
+        <text x="0" y="25" font-size="9" fill="white" opacity="0">✓ Exams</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.6s" fill="freeze"/>
+      </g>
+    </g>
+    
+    <!-- Column 3: DONE -->
+    <g transform="translate(66, -55)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.7s" fill="freeze"/>
+      <rect x="-30" y="-30" width="60" height="80" rx="8" fill="#064e3b" stroke="url(#g2)" stroke-width="1.5" opacity="0.5"/>
+      <g font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="url(#g2)" text-anchor="middle">
+        <text x="0" y="-18" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2s" fill="freeze"/>DONE</text>
+        <text x="0" y="-5" font-size="9" opacity="0">✓ Classes</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.1s" fill="freeze"/>
+        <text x="0" y="5" font-size="9" opacity="0">✓ Assignments</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.3s" fill="freeze"/>
+        <text x="0" y="15" font-size="9" opacity="0">✓ Exams</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.5s" fill="freeze"/>
+        <text x="0" y="25" font-size="9" font-weight="800" opacity="0">✓ Capstone</text>
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.7s" fill="freeze"/>
+      </g>
+    </g>
+    
+    <!-- Cards moving animation -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="1s" fill="freeze"/>
+      <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="2s" fill="freeze"/>
+      <rect x="-30" y="-15" width="60" height="40" rx="6" fill="#10b981" opacity="0.9" filter="url(#glow)">
+        <animate attributeName="x" from="-96" to="0" dur="1s" begin="1s" fill="freeze" easing="ease-out"/>
+        <animate attributeName="opacity" from="0.9" to="0" dur="0.5s" begin="2s" fill="freeze"/>
+      </rect>
+      <text x="0" y="-3" font-family="system-ui" font-size="9" font-weight="700" fill="white" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.1s" fill="freeze"/>
+        <animate attributeName="x" from="-96" to="0" dur="1s" begin="1s" fill="freeze" easing="ease-out"/>
+        <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="2s" fill="freeze"/>✓ Classes
+      </text>
+    </g>
+    
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="1.3s" fill="freeze"/>
+      <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="2.3s" fill="freeze"/>
+      <rect x="-30" y="-15" width="60" height="40" rx="6" fill="#fbbf24" opacity="0.9" filter="url(#glow2)">
+        <animate attributeName="x" from="-96" to="0" dur="1s" begin="1.3s" fill="freeze" easing="ease-out"/>
+        <animate attributeName="opacity" from="0.9" to="0" dur="0.5s" begin="2.3s" fill="freeze"/>
+      </rect>
+      <text x="0" y="-3" font-family="system-ui" font-size="9" font-weight="700" fill="#052e16" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.4s" fill="freeze"/>
+        <animate attributeName="x" from="-96" to="0" dur="1s" begin="1.3s" fill="freeze" easing="ease-out"/>
+        <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="2.3s" fill="freeze"/>✓ Assignments
+      </text>
+    </g>
+    
+    <!-- Wordmark -->
+    <text x="0" y="115" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle" letter-spacing="4" opacity="0.95">ESSENTIAL</text>
+    <text x="0" y="135" font-size="8" fill="white" text-anchor="middle" letter-spacing="3" opacity="0.4">KANBAN YOUR SEMESTER</text>
+  </g>
+</svg>

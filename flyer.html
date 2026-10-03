@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdaptAir — One-Page Flyer</title>
+<style>
+  /* ============================================================
+     ONE-PAGE FLYER — AdaptAir Smart Air Purifier
+     Palette & product details reference: purifier3d.html
+     ------------------------------------------------------------
+     HOW TO PRINT: File > Print > Paper: Letter > Orientation:
+                  Portrait > Scale: 100% > Margins: None
+                  (Enable "Background graphics" for full color.)
+     ============================================================ */
+  :root {
+    --accent:    #1e6fd9;
+    --accent-dk: #175cb4;
+    --accent-soft: #dbe8f8;
+    --teal:      #0d9488;
+    --teal-soft: #ccfbf1;
+    --amber:     #d97706;
+    --amber-soft: #fef3c7;
+    --ink:       #1d2530;
+    --muted:     #5b6773;
+    --line:      #c9d1d9;
+    --bg:        #eef1f4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--bg);
+    font-family: "Segoe UI", Inter, system-ui, Arial, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- Screen-only toolbar ---------- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px 20px;
+    background: var(--ink); color: #fff;
+    font-size: 14px;
+  }
+  .toolbar button {
+    background: var(--accent); color: #fff;
+    border: 0; border-radius: 8px;
+    padding: 8px 18px; font-weight: 700; font-size: 14px;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: var(--accent-dk); }
+  .toolbar .hint { color: #94a3b8; font-size: 12.5px; }
+
+  /* ---------- Flyer page (Letter portrait) ---------- */
+  .flyer {
+    width: 8.5in; height: 11in;
+    margin: 24px auto;
+    background: #fff;
+    box-shadow: 0 8px 32px rgba(29, 37, 48, .18);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ---------- Header ---------- */
+  .header {
+    display: flex; align-items: center; gap: 12px;
+    padding: .18in .45in;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dk) 100%);
+    color: #fff;
+  }
+  .header .mark {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(255,255,255,.18);
+    display: grid; place-items: center; flex: none;
+  }
+  .header .brand { font-size: 17px; font-weight: 800; }
+  .header .brand small { display: block; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+  .header .tag {
+    margin-left: auto;
+    background: #fff; color: var(--accent-dk);
+    font-size: 10.5px; font-weight: 800;
+    padding: 6px 14px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: .08em;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: flex; align-items: center; gap: .35in;
+    padding: .22in .45in .16in;
+    background: linear-gradient(120deg, #f0f7fa 0%, #f4f8fa 50%, #eef1f4 100%);
+  }
+  .hero-text { flex: 1.2; }
+  .hero-text h1 { font-size: 28px; font-weight: 800; line-height: 1.12; }
+  .hero-text h1 span { color: var(--accent); }
+  .hero-text p { margin-top: 10px; font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+  /* CSS product visual — cylindrical tower */
+  .tower {
+    width: 1.35in; height: 2.1in; flex: none;
+    border-radius: .68in .68in .1in .1in;
+    background: linear-gradient(180deg, #f4f7f9 0%, #dde4ea 55%, #c9d1d9 100%);
+    border: 1px solid var(--line);
+    position: relative;
+    box-shadow: 0 10px 24px rgba(29, 37, 48, .15);
+  }
+  .tower::before {
+    content: ""; position: absolute; bottom: .15in; left: .15in; right: .15in; height: .5in;
+    border-radius: .05in;
+    background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 8px);
+    opacity: .55;
+  }
+  .tower::after {
+    content: ""; position: absolute; top: .1in; left: 50%; transform: translateX(-50%);
+    width: .8in; height: .09in; border-radius: .05in;
+    background: repeating-linear-gradient(90deg, var(--muted) 0 4px, transparent 4px 10px);
+    opacity: .5;
+  }
+  .tower .oled {
+    position: absolute; top: 38%; left: 50%; transform: translateX(-50%);
+    width: .78in; height: .46in;
+    background: #050f16; border-radius: .06in;
+    border: 1px solid #2a3138;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px;
+  }
+  .tower .oled b { font-size: 10px; color: #8ce9ff; font-family: Consolas, monospace; }
+  .tower .oled span { font-size: 7px; color: #8ce9ff; font-family: Consolas, monospace; opacity: .8; }
+
+  /* ---------- Stats strip ---------- */
+  .stats {
+    display: flex;
+    background: linear-gradient(90deg, var(--accent-soft) 0%, var(--teal-soft) 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    flex: 1; text-align: center;
+    padding: .1in .1in;
+  }
+  .stat + .stat { border-left: 1px solid var(--line); }
+  .stat b { display: block; font-size: 18px; color: var(--accent-dk); }
+  .stat span { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+  /* ---------- Sections ---------- */
+  .section { padding: .17in .45in; }
+  .section h2 { font-size: 17px; font-weight: 800; margin-bottom: 12px; }
+  .section h2 span { color: var(--accent); }
+
+  .grid { display: flex; gap: 12px; }
+  .card {
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+  }
+  .card .badge {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: var(--accent-soft);
+    display: grid; place-items: center;
+    margin-bottom: 8px;
+  }
+  .card h3 { font-size: 12px; font-weight: 700; }
+  .card p { font-size: 10px; color: var(--muted); line-height: 1.5; margin-top: 3px; }
+
+  /* ---------- Flowchart strip ---------- */
+  .flow-section {
+    padding: .15in .45in;
+    background: linear-gradient(180deg, #f8fbfd 0%, #eef1f4 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .flow-section h2 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+  .flow-section h2 span { color: var(--accent); }
+  /* Horizontal zig-zag: rounded-rect boxes, elbow connectors */
+  .flow { position: relative; width: 100%; height: 128px; }
+  .flow-arrows {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: 2; pointer-events: none;
+  }
+  .flow-arrows path { stroke: var(--muted); stroke-width: 2; fill: none; }
+  .flow-step {
+    position: absolute;
+    width: 130px; height: 64px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px;
+    text-align: center;
+    font-size: 10px; font-weight: 700;
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 3px 3px 0 rgba(29, 37, 48, .10);
+  }
+  /* centers x = 70 / 267 / 463 / 660 · up row y = 0, down row y = 64 */
+  .flow-step:nth-child(1) { left: 5px;   top: 0px; }
+  .flow-step:nth-child(2) { left: 202px; top: 64px; }
+  .flow-step:nth-child(3) { left: 398px; top: 0px; }
+  .flow-step:nth-child(4) { left: 595px; top: 64px; }
+  .flow-step > div { width: 112px; }
+  .flow-step b { font-size: 10px; }
+  .flow-step small { font-size: 7.5px; font-weight: 500; color: var(--muted); max-width: 112px; line-height: 1.3; }
+  .flow-step .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .fs-blue  { background: var(--accent-soft); border-color: #b8d4e0; }
+  .fs-blue .dot { background: var(--accent); }
+  .fs-teal  { background: var(--teal-soft); border-color: #99e6dd; }
+  .fs-teal .dot { background: var(--teal); }
+  .fs-amber { background: var(--amber-soft); border-color: #f0d9a8; }
+  .fs-amber .dot { background: var(--amber); }
+
+  /* ---------- Sensor suite strip ---------- */
+  .sensors {
+    display: flex; gap: 8px; padding: .13in .45in;
+    flex-wrap: wrap;
+  }
+  .sensor {
+    flex: 1; min-width: 1.1in;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .sensor b { display: block; font-size: 10.5px; color: var(--accent-dk); }
+  .sensor span { font-size: 9px; color: var(--muted); }
+
+  /* ---------- Competitive edge ---------- */
+  .edge {
+    margin: 0 .45in;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .edge h3 { font-size: 12.5px; font-weight: 800; margin-bottom: 6px; }
+  .edge ul { list-style: none; }
+  .edge li { font-size: 10.5px; line-height: 1.6; padding-left: 18px; position: relative; }
+  .edge li::before { content: "✔"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+
+  /* ---------- Market positioning ---------- */
+  .market {
+    margin: .11in .45in 0;
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--teal-soft) 100%);
+    border-radius: 10px;
+    padding: 10px 16px;
+  }
+  .market h3 { font-size: 12.5px; font-weight: 800; margin-bottom: 6px; color: var(--accent-dk); }
+  .market-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .mstat { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; text-align: center; }
+  .mstat b { display: block; font-size: 16px; font-weight: 800; color: var(--accent-dk); }
+  .mstat span { display: block; font-size: 8.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 1px; }
+  .mstat .bar { height: 4px; border-radius: 2px; background: #e2e8f0; margin-top: 5px; overflow: hidden; }
+  .mstat .bar i { display: block; height: 100%; width: 5%; background: var(--amber); }
+
+  /* ---------- Footer CTA ---------- */
+  .cta {
+    margin-top: auto;
+    display: flex; align-items: center; gap: 18px;
+    background: var(--ink); color: #fff;
+    padding: .16in .45in;
+  }
+  .cta h3 { font-size: 14px; font-weight: 800; }
+  .cta p { font-size: 10px; color: #94a3b8; margin-top: 3px; }
+  .cta .go {
+    margin-left: auto; flex: none;
+    background: var(--accent); color: #fff;
+    font-weight: 800; font-size: 11.5px;
+    padding: 10px 18px; border-radius: 999px;
+  }
+
+  .icon { width: 20px; height: 20px; }
+
+  /* ---------- Print ---------- */
+  @page { size: letter portrait; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .toolbar { display: none; }
+    .flyer { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <strong>AdaptAir — One-Page Flyer</strong>
+    <span class="hint">Preview — ready to print when you are.</span>
+    <span style="flex:1"></span>
+    <button onclick="window.print()">🖨 Print flyer</button>
+  </div>
+
+  <div class="flyer">
+
+    <!-- Header -->
+    <div class="header">
+      <span class="mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 6 4 10 4 14a8 8 0 0 0 16 0c0-4-3-8-8-12Z" fill="#fff" opacity=".95"/></svg>
+      </span>
+      <div class="brand">
+        AdaptAir™
+        <small>Smart Air Purifier</small>
+      </div>
+      <span class="tag">Self-calibrating · Source-aware</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-text">
+        <h1>The purifier that <span>measures its own</span> cleaning power.</h1>
+        <p>AdaptAir knows its real-world condition — actual CADR, filter loading, sensor bias — and knows why the air got dirty, using only the sensors it already carries. Everything runs on a single ESP32.</p>
+      </div>
+      <div class="tower">
+        <div class="oled">
+          <b>PM2.5  12</b>
+          <span>CO₂ 642 · FAN 62%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats">
+      <div class="stat"><b>≥ 20%</b><span>less energy than auto-mode</span></div>
+      <div class="stat"><b>&lt; 35</b><span>µg/m³ PM2.5 target (USEPA)</span></div>
+      <div class="stat"><b>10–30</b><span>min PM2.5 forecast ahead</span></div>
+      <div class="stat"><b>830</b><span>mm slim tower design</span></div>
+    </div>
+
+    <!-- Why choose us -->
+    <div class="section">
+      <h2>Why <span>AdaptAir</span>?</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="badge">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#256376" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+          </div>
+          <h3>Self-calibrating CADR</h3>
+          <p>Fits PM2.5 decay after every clean-down and updates its real cleaning rate — live, in your room.</p>
+        </div>
+        <div class="card">
+          <div class="badge">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#256376" stroke-width="2"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Real filter health</h3>
+          <p>Fuses INA219 power signatures with measured CADR — separates a clogging filter from a leaky room.</p>
+        </div>
+        <div class="card">
+          <div class="badge">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#256376" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+          </div>
+          <h3>Source-aware control</h3>
+          <p>Reed-switch door events vs CO₂ + particle size bins — incense gets a burst, a door gets a boost.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control loop flowchart -->
+    <div class="flow-section">
+      <h2>How it works — <span>the AdaptAir loop</span></h2>
+      <div class="flow">
+        <div class="flow-step fs-blue"><span class="dot"></span><div><b>Sense</b><small>PM · RH · CO₂ · door · power</small></div></div>
+        <div class="flow-step fs-teal"><span class="dot"></span><div><b>Self-calibrate</b><small>humidity-correct · fit CADR · load</small></div></div>
+        <div class="flow-step fs-amber"><span class="dot"></span><div><b>Classify event</b><small>door → boost · smoke → burst</small></div></div>
+        <div class="flow-step fs-blue"><span class="dot"></span><div><b>Act</b><small>forecast 10–30 min · save energy</small></div></div>
+        <svg class="flow-arrows" viewBox="0 0 730 128" preserveAspectRatio="none">
+          <defs>
+            <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+              <path d="M0 0 L10 4 L0 8 Z" fill="#5b6773"/>
+            </marker>
+          </defs>
+          <path d="M135,32 H267 V66" marker-end="url(#ah)"/>
+          <path d="M332,96 H463 V62" marker-end="url(#ah)"/>
+          <path d="M528,32 H660 V66" marker-end="url(#ah)"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Sensor suite -->
+    <div class="sensors">
+      <div class="sensor"><b>PMS5003</b><span>laser PM1 / PM2.5 / PM10</span></div>
+      <div class="sensor"><b>BME280</b><span>temp · humidity · pressure</span></div>
+      <div class="sensor"><b>SCD40</b><span>true NDIR CO₂</span></div>
+      <div class="sensor"><b>INA219</b><span>inline current / power</span></div>
+      <div class="sensor"><b>Reed switch</b><span>door-open detection</span></div>
+    </div>
+
+
+
+    <!-- Market positioning -->
+    <div class="market">
+      <h3>📊 Where AdaptAir fits the market</h3>
+      <div class="market-stats">
+        <div class="mstat"><b>$579M</b><span>India market '25</span></div>
+        <div class="mstat"><b>13.5%</b><span>annual growth</span></div>
+        <div class="mstat"><b>&lt;5%</b><span>homes own one</span><div class="bar"><i></i></div></div>
+        <div class="mstat"><b>₹10–15K</b><span>smart segment</span></div>
+        <div class="mstat"><b>≥20%</b><span>less energy than auto-mode</span></div>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="cta">
+      <div>
+        <h3>Ready to breathe smarter?</h3>
+        <p>IIITDM Jabalpur · Group 83 · Mentor: Dr. Ranjeet Kumar Ranjan</p>
+      </div>
+      <span class="go">AdaptAir™</span>
+    </div>
+
+  </div>
+</body>
+</html>

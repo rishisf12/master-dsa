@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - strong [ref=e3]: AdaptAir — Tri-Fold Brochure
+    - generic [ref=e4]: Preview — the dashed lines are the fold guides.
+    - button "🖨 Print brochure" [ref=e5] [cursor=pointer]
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: AdaptAir™
+      - heading [level=2] [ref=e12]:
+        - text: The purifier that
+        - emphasis [ref=e13]: knows its own
+        - text: cleaning power.
+      - paragraph [ref=e14]: AdaptAir measures its real cleaning rate and filter condition in the room it's placed in, corrects its sensor for humidity, recognises whether pollution comes from an opened door or an indoor source — and keeps your air clean at the minimum measured energy. All on a single ESP32.
+      - separator [ref=e15]
+      - generic [ref=e16]:
+        - heading "At a glance" [level=3] [ref=e17]
+        - table [ref=e18]:
+          - rowgroup [ref=e19]:
+            - row [ref=e20]:
+              - cell "Sensors" [ref=e21]
+              - cell "PM · RH · CO₂ · door · power" [ref=e22]
+            - row [ref=e23]:
+              - cell "Filtration" [ref=e24]
+              - cell "Pre-filter + HEPA H13" [ref=e25]
+            - row [ref=e26]:
+              - cell "Blower" [ref=e27]
+              - cell "12 V brushless DC, PWM" [ref=e28]
+            - row [ref=e29]:
+              - cell "Display" [ref=e30]
+              - cell "0.96\" OLED — PM2.5 · CO₂ · fan" [ref=e31]
+            - row [ref=e32]:
+              - cell "Logging" [ref=e33]
+              - cell "microSD (CSV) · Wi-Fi telemetry" [ref=e34]
+            - row [ref=e35]:
+              - cell "Compute" [ref=e36]
+              - cell "ESP32 · int8 edge AI · no cloud" [ref=e37]
+      - generic [ref=e38]:
+        - heading "Market position" [level=3] [ref=e39]
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - generic [ref=e42]: $579M
+            - generic [ref=e43]: India market '25
+          - generic [ref=e44]:
+            - generic [ref=e45]: 13.5%
+            - generic [ref=e46]: annual growth
+          - generic [ref=e47]:
+            - generic [ref=e48]: <5%
+            - generic [ref=e49]: homes own one
+          - generic [ref=e52]:
+            - generic [ref=e53]: ₹10–15K
+            - generic [ref=e54]: smart segment
+          - generic [ref=e55]:
+            - generic [ref=e56]: ≥20%
+            - generic [ref=e57]: less energy than auto-mode
+    - generic [ref=e58]:
+      - generic [ref=e59]: Why choose it
+      - heading "What makes AdaptAir different" [level=2] [ref=e60]
+      - generic [ref=e66]:
+        - heading "Self-calibrating CADR" [level=3] [ref=e67]
+        - paragraph [ref=e68]: Fits PM2.5 decay after every clean-down and updates its real cleaning rate — live, in your room.
+      - generic [ref=e74]:
+        - heading "Real filter health" [level=3] [ref=e75]
+        - paragraph [ref=e76]: Fuses INA219 power signatures with measured CADR — separates a clogging filter from a leaky room.
+      - generic [ref=e81]:
+        - heading "Humidity-corrected sensing" [level=3] [ref=e82]
+        - paragraph [ref=e83]: On-device BME280 RH correction gives trustworthy PM2.5 readings in humid monsoon and winter mornings.
+      - generic [ref=e88]:
+        - heading "Source-aware control" [level=3] [ref=e89]
+        - paragraph [ref=e90]: Reed-switch door events vs SCD40 CO₂ + PMS5003 size bins — incense gets a burst, a door gets a boost.
+      - separator [ref=e91]
+      - generic [ref=e92]: Control loop
+      - generic [ref=e93]:
+        - generic [ref=e96]:
+          - text: Sense
+          - generic [ref=e97]: PM · RH · CO₂ · door · power
+        - generic [ref=e100]:
+          - text: Self-calibrate
+          - generic [ref=e101]: humidity-correct · fit CADR · load
+        - generic [ref=e104]:
+          - text: Classify event
+          - generic [ref=e105]: door → boost · smoke → burst
+        - generic [ref=e108]:
+          - text: Act
+          - generic [ref=e109]: forecast 10–30 min · save energy
+    - generic [ref=e110]:
+      - generic [ref=e111]: Smart Air Purifier
+      - generic [ref=e113]:
+        - generic [ref=e114]: PM2.5 12
+        - generic [ref=e115]: CO₂ 642 · FAN 62%
+      - heading "AdaptAir" [level=1] [ref=e116]
+      - paragraph [ref=e117]: Sense → self-calibrate → understand the event → act at minimum measured energy.
+      - generic [ref=e118]:
+        - generic [ref=e119]: Self-calibrating
+        - generic [ref=e120]: Source-aware
+        - generic [ref=e121]: HEPA H13
+        - generic [ref=e122]: Edge AI
+      - generic [ref=e123]: IIITDM Jabalpur · DFP 2026
