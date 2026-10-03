@@ -1,0 +1,34 @@
+# Dependencies
+frontend/node_modules/
+backend/.venv/
+backend/venv_wsl/
+*.egg-info/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+backend/__pycache__/
+backend/.pytest_cache/
+
+# Environment files
+frontend/.env
+backend/.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc
+*.pyc
+.vercel
